@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Awaa 🎀</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe4f0, #fef6ff);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ffe6f2, #fff7fb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.envelope {
+  font-size: 4.5rem;
+  animation: bounce 1.6s infinite;
+  cursor: pointer;
+}
+
+.tap-text {
+  margin-top: 15px;
+  color: #ff6fae;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* MAIN */
+.container {
+  display: none;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255,255,255,0.78);
+  padding: 45px 30px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(255,160,200,0.35);
+  max-width: 380px;
+  animation: pop 1.2s ease;
+  z-index: 2;
+}
+
+.cake {
+  font-size: 3.2rem;
+  animation: bounce 2s infinite;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff6fae;
+  font-size: 2.4rem;
+  margin-top: 10px;
+  text-shadow: 0 0 20px rgba(255,120,180,0.6);
+}
+
+h2 {
+  font-size: 0.95rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+p {
+  margin-top: 22px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.65;
+}
+
+.highlight {
+  color: #ff6fae;
+  font-weight: 600;
+}
+
+footer {
+  margin-top: 28px;
+  font-size: 0.7rem;
+  color: #999;
+}
+
+/* FLOATING */
+.floating {
+  position: absolute;
+  animation: float 7s linear infinite;
+  opacity: 0.9;
+}
+
+/* ANIMATIONS */
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(110vh) rotate(0deg); }
+  100% { transform: translateY(-130vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="envelope">💌</div>
+  <div class="tap-text">Tap the letter 💕</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="main">
+  <div class="card">
+    <div class="cake">🎂</div>
+
+    <h1>Happy Birthday awaaa 🎉</h1>
+    <h2>Salwa Aulia <br>(<b>my besti</b>)</h2>
+
+    <p>
+      <b>Barakallah fii umrik awaaa</b> 💕<br><br>
+
+      Ciee udah ultah yang ke-sekian 🤭✨  
+      Semoga di umur kamu yang sekarang  
+      you become a <span class="highlight">better person</span> every day 💫<br><br>
+
+      Semoga dilancarkan rezekinya,  
+      dimudahkan semua perjuangannya,  
+      and may all your wishes come true 🤍<br><br>
+
+      Semoga yang di-semoga-kan  
+      segera <span class="highlight">tersemogakan</span> 🎀  
+      dan kamu bisa membanggakan  
+      kedua orang tua kamu 🌷<br><br>
+
+      <b>Wish you all the best</b> pokonamah waaaa 🤭🎉
+    </p>
+
+    <footer>© Muhamad Hanafi (Jelgab BM BCh)</footer>
+  </div>
+</div>
+
+<script>
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+const music = document.getElementById("bgm");
+
+intro.onclick = () => {
+  intro.style.display = "none";
+  main.style.display = "flex";
+  music.play();
+
+  const items = ["🎈","🎀","✨","💖","🌸","🎊","💕"];
+  for (let i = 0; i < 45; i++) {
+    const el = document.createElement("div");
+    el.className = "floating";
+    el.innerText = items[Math.floor(Math.random() * items.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = 1.2 + Math.random() * 1.8 + "rem";
+    el.style.animationDuration = 5 + Math.random() * 6 + "s";
+    document.body.appendChild(el);
+  }
+};
+</script>
+
+</body>
+</html>
